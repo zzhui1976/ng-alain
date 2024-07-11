@@ -42,6 +42,69 @@
             }
           ]
         },
+
+        {
+          "text": "客户管理",
+          "icon": "anticon-link",
+          "children": [
+            {
+              "text": "个人客户管理",
+              "link": "/dashboard/v1"
+            },
+            {
+              "text": "法人客户管理",
+              "link": "/dashboard/analysis"
+            },
+            {
+              "text": "雇员管理",
+              "link": "/dashboard/monitor"
+            },
+            {
+              "text": "联系人管理",
+              "link": "/dashboard/workplace"
+            }
+            ,
+            {
+              "text": "客户家属管理",
+              "link": "/dashboard/workplace"
+            }
+            ,
+            {
+              "text": "企业数据信息管理",
+              "link": "/dashboard/workplace"
+            }
+          
+          ]
+        },
+        {
+          "text": "销售管理",
+          "icon": "anticon-cloud",
+          "children": [
+            {
+              "text": "销售组织管理",
+              "link": "/sale/poi"
+            },
+            {
+              "text": "产品管理",
+              "link": "/dashboard/analysis"
+            },
+            {
+              "text": "商机管理",
+              "link": "/dashboard/monitor"
+            },
+            {
+              "text": "订单管理",
+              "link": "/dashboard/workplace"
+            }
+            ,
+            {
+              "text": "售后管理",
+              "link": "/dashboard/workplace"
+            }
+        
+          ]
+        },
+
         {
           "text": "快捷菜单",
           "i18n": "menu.shortcut",
