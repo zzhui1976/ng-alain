@@ -57,7 +57,7 @@ export const USERS = {
     email: 'cipchk@qq.com',
     signature: '海纳百川，有容乃大',
     title: '交互专家',
-    group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+    group: '总公司－某某某事业群－某某平台部－某某技术部－UED',
     tags: [
       {
         key: '0',
@@ -65,7 +65,7 @@ export const USERS = {
       },
       {
         key: '1',
-        label: '专注撩妹',
+        label: '专注编码',
       },
       {
         key: '2',
@@ -102,8 +102,8 @@ export const USERS = {
   'POST /user/avatar': 'ok',
   'POST /login/account': (req: MockRequest) => {
     const data = req.body;
-    if (!(data.userName === 'admin' || data.userName === 'user') || data.password !== 'ng-alain.com') {
-      return { msg: `Invalid username or password（admin/ng-alain.com）` };
+    if (!(data.userName === 'admin' || data.userName === 'user') || data.password !== 'password') {
+      return { msg: `Invalid username or password（admin/password）` };
     }
     return {
       msg: 'ok',

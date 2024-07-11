@@ -2,7 +2,7 @@
   "menu": {
     "dashboard": {
       "": "仪表盘",
-      "v1": "默认页",
+      "v1": "综合页",
       "analysis": "分析页",
       "monitor": "监控页",
       "workplace": "工作台"
@@ -16,7 +16,7 @@
   "menu.main": "主导航",
   "menu.shortcut": "快捷菜单",
   "menu.widgets": "小部件",
-  "menu.alain": "Alain",
+  "menu.alain": "系统功能",
   "menu.style": "样式",
   "menu.style.typography": "字体排印",
   "menu.style.gridmasonry": "瀑布流",
@@ -33,7 +33,7 @@
   "menu.delon.downfile": "下载文件",
   "menu.delon.xlsx": "Excel操作",
   "menu.delon.zip": "本地解压缩",
-  "menu.pro": "Antd Pro",
+  "menu.pro": "实验中的功能",
   "menu.form": "表单页",
   "menu.form.basicform": "基础表单",
   "menu.form.stepform": "分步表单",

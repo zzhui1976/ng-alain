@@ -1,12 +1,12 @@
 {
   "app": {
-    "name": "Alain",
-    "description": "Ng-zorro admin panel front-end framework"
+    "name": "公司综合服务门户",
+    "description": "公司综合服务门户"
   },
   "user": {
     "name": "Admin",
     "avatar": "./assets/tmp/img/avatar.jpg",
-    "email": "cipchk@qq.com"
+    "email": "wshw1234@hotmail.com"
   },
   "menu": [
     {
@@ -48,17 +48,61 @@
           "icon": "anticon-rocket",
           "shortcutRoot": true,
           "children": []
+        }
+      ]
+    },
+
+    {
+      "text": "More",
+      "i18n": "menu.more",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "Report",
+          "i18n": "menu.report",
+          "icon": "anticon-cloud",
+          "children": [
+            {
+              "text": "Relation",
+              "link": "/data-v/relation",
+              "i18n": "menu.report.relation",
+              "reuse": false
+            }
+          ]
         },
+        {
+          "text": "Extras",
+          "i18n": "menu.extras",
+          "link": "/extras",
+          "icon": "anticon-link",
+          "children": [
+            {
+              "text": "Help Center",
+              "link": "/extras/helpcenter",
+              "i18n": "menu.extras.helpcenter"
+            },
+            {
+              "text": "Settings",
+              "link": "/extras/settings",
+              "i18n": "menu.extras.settings"
+            },
+            {
+              "text": "Poi",
+              "link": "/extras/poi",
+              "i18n": "menu.extras.poi"
+            }
+          ]
+        },
+        
         {
           "text": "小部件",
           "i18n": "menu.widgets",
           "link": "/widgets",
           "icon": "anticon-appstore",
           "badge": 2
-        }
-      ]
-    },
-    {
+        },
+        {
       "text": "Alain",
       "i18n": "menu.alain",
       "group": true,
@@ -304,49 +348,7 @@
           ]
         }
       ]
-    },
-    {
-      "text": "More",
-      "i18n": "menu.more",
-      "group": true,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "Report",
-          "i18n": "menu.report",
-          "icon": "anticon-cloud",
-          "children": [
-            {
-              "text": "Relation",
-              "link": "/data-v/relation",
-              "i18n": "menu.report.relation",
-              "reuse": false
-            }
-          ]
-        },
-        {
-          "text": "Extras",
-          "i18n": "menu.extras",
-          "link": "/extras",
-          "icon": "anticon-link",
-          "children": [
-            {
-              "text": "Help Center",
-              "link": "/extras/helpcenter",
-              "i18n": "menu.extras.helpcenter"
-            },
-            {
-              "text": "Settings",
-              "link": "/extras/settings",
-              "i18n": "menu.extras.settings"
-            },
-            {
-              "text": "Poi",
-              "link": "/extras/poi",
-              "i18n": "menu.extras.poi"
-            }
-          ]
-        }
+    }
       ]
     }
   ]

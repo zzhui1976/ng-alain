@@ -125,8 +125,8 @@ import { HeaderUserComponent } from './widgets/user.component';
 export class LayoutBasicComponent {
   private readonly settings = inject(SettingsService);
   options: LayoutDefaultOptions = {
-    logoExpanded: `./assets/logo-full.svg`,
-    logoCollapsed: `./assets/logo.svg`
+    logoExpanded: `./assets/logo-full.png`,
+    logoCollapsed: `./assets/logo.png`
   };
   searchToggleStatus = false;
   showSettingDrawer = !environment.production;

@@ -16,9 +16,9 @@ import { HeaderI18nComponent } from '../basic/widgets/i18n.component';
         <div class="top">
           <div class="head">
             <img class="logo" src="./assets/logo-color.svg" />
-            <span class="title">NG-ALAIN</span>
+            <span class="title">公司综合服务门户</span>
           </div>
-          <div class="desc">武林中最有影响力的《葵花宝典》；欲练神功，挥刀自宫</div>
+          <div class="desc">欢迎使用本系统</div>
         </div>
         <router-outlet />
         <global-footer [links]="links">
