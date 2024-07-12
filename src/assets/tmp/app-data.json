@@ -49,11 +49,11 @@
           "children": [
             {
               "text": "个人客户管理",
-              "link": "/dashboard/v1"
+              "link": "/customer/person-customer"
             },
             {
               "text": "法人客户管理",
-              "link": "/dashboard/analysis"
+              "link": "/customer/legal-customer"
             },
             {
               "text": "雇员管理",
@@ -93,7 +93,15 @@
               "link": "/dashboard/monitor"
             },
             {
-              "text": "订单管理",
+              "text": "个人订单管理",
+              "link": "/dashboard/workplace"
+            },
+            {
+              "text": "法人订单管理",
+              "link": "/dashboard/workplace"
+            },
+            {
+              "text": "团体订单管理",
               "link": "/dashboard/workplace"
             }
             ,

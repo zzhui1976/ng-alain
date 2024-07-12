@@ -59,7 +59,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-label nzSpan="4">门店类型</nz-form-label>
         <nz-form-control nzSpan="8">
           <nz-select [(ngModel)]="i.categories" name="categories" required [nzAllowClear]="false">
-            <nz-option *ngFor="let i of cat" [nzLabel]="i" [nzValue]="i" />
+            <nz-option *ngFor="let i of cat" [nzLabel]="i.name" [nzValue]="i.id" />
           </nz-select>
         </nz-form-control>
       </nz-form-item>
@@ -102,7 +102,11 @@ export class SalePoiEditComponent implements OnInit {
   readonly http = inject(_HttpClient);
 
   i: any;
-  cat: string[] = ['美食', '美食,粤菜', '美食,粤菜,湛江菜'];
+  cat: any[] = [
+    { id: '1', name: '美食' },
+    { id: '2', name: '美食,粤菜' },
+    { id: '3', name: '美食,粤菜,湛江菜' }
+  ];
 
   ngOnInit(): void {
     if (this.i.id > 0) {
