@@ -58,4 +58,36 @@ export const POIS = {
       },
     ],
   },
+
+    '/products': {
+    total: 2,
+    list: [
+      {
+        id: 1,
+        name: '产品1',
+        category: '电子产品',
+        brand: '品牌1',
+        model: '型号1',
+        price: 1000,
+        stock: 100,
+        productionDate: '2023-01-01',
+        shelfLife: '1年',
+        supplier: '供应商1',
+        note: '备注1'
+      },
+      {
+        id: 2,
+        name: '产品2',
+        category: '家居用品',
+        brand: '品牌2',
+        model: '型号2',
+        price: 2000,
+        stock: 200,
+        productionDate: '2023-02-01',
+        shelfLife: '2年',
+        supplier: '供应商2',
+        note: '备注2'
+      }
+    ]
+  }
 };

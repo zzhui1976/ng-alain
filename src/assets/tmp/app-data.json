@@ -57,21 +57,21 @@
             },
             {
               "text": "雇员管理",
-              "link": "/dashboard/monitor"
+              "link": "/customer/staff"
             },
             {
               "text": "联系人管理",
-              "link": "/dashboard/workplace"
+              "link": "/customer/contact"
             }
             ,
             {
               "text": "客户家属管理",
-              "link": "/dashboard/workplace"
+              "link": "/customer/family"
             }
             ,
             {
               "text": "企业数据信息管理",
-              "link": "/dashboard/workplace"
+              "link": "/customer/enterprise"
             }
           
           ]
@@ -86,7 +86,7 @@
             },
             {
               "text": "产品管理",
-              "link": "/dashboard/analysis"
+              "link": "/sale/product"
             },
             {
               "text": "商机管理",
