@@ -89,5 +89,102 @@ export const POIS = {
         note: '备注2'
       }
     ]
+  },
+    '/opportunities': {
+    total: 2,
+    list: [
+      {
+        id: 1,
+        name: '商机1',
+        customer: '客户1',
+        status: '进行中',
+        amount: 10000,
+        expectedDate: '2023-12-01',
+        owner: '张三',
+        createdDate: '2023-01-01',
+        note: '备注1'
+      },
+      {
+        id: 2,
+        name: '商机2',
+        customer: '客户2',
+        status: '已完成',
+        amount: 20000,
+        expectedDate: '2023-11-01',
+        owner: '李四',
+        createdDate: '2023-02-01',
+        note: '备注2'
+      }
+    ]
+  },
+
+    '/warehouses': {
+    total: 2,
+    list: [
+      {
+        "id":1,
+        "name": "Project Alpha",
+        "url": "https://project-alpha.com",
+        "owner": "Emily Davis",
+        "approver": "Michael Johnson",
+        "date_range": {
+          "start": "2023-03-01",
+          "end": "2023-08-31"
+        },
+        "type": "Research",
+        "name2": "Alpha Details",
+        "summary": "A comprehensive research project on renewable energy sources.",
+        "owner2": "Sarah Thompson",
+        "approver2": "David Wilson",
+        "time": "2023-05-15T09:00:00Z",
+        "type2": "Phase 1",
+        "items": [
+          {
+            "key": "alpha1",
+            "workId": "A001",
+            "name": "Solar Panel Study",
+            "department": "Energy Research"
+          },
+          {
+            "key": "alpha2",
+            "workId": "A002",
+            "name": "Wind Turbine Analysis",
+            "department": "Energy Research"
+          }
+        ]
+      },
+      {
+        "id":2,
+        "name": "Marketing Campaign Beta",
+        "url": "https://marketing-beta.com",
+        "owner": "James Smith",
+        "approver": "Linda Martinez",
+        "date_range": {
+          "start": "2023-06-01",
+          "end": "2023-11-30"
+        },
+        "type": "Marketing",
+        "name2": "Beta Strategy",
+        "summary": "A strategic marketing campaign targeting millennials.",
+        "owner2": "Karen White",
+        "approver2": "Richard Harris",
+        "time": "2023-07-20T14:30:00Z",
+        "type2": "Phase 2",
+        "items": [
+          {
+            "key": "beta1",
+            "workId": "M001",
+            "name": "Social Media Ads",
+            "department": "Digital Marketing"
+          },
+          {
+            "key": "beta2",
+            "workId": "M002",
+            "name": "Email Newsletter",
+            "department": "Digital Marketing"
+          }
+        ]
+      }
+    ]
   }
 };

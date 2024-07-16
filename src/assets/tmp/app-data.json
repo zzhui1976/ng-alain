@@ -89,8 +89,12 @@
               "link": "/sale/product"
             },
             {
+              "text": "仓库管理",
+              "link": "/sale/warehouse"
+            },
+            {
               "text": "商机管理",
-              "link": "/dashboard/monitor"
+              "link": "/sale/opportunity"
             },
             {
               "text": "个人订单管理",
