@@ -19,8 +19,6 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.corporation" name="corporation" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
         <nz-form-label nzSpan="4">雇员姓名</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.name" name="name" required />
@@ -31,8 +29,6 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.department" name="department" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
         <nz-form-label nzSpan="4">职级</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.rank" name="rank" required />

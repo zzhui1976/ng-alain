@@ -19,8 +19,6 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.customerName" name="customerName" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
         <nz-form-label nzSpan="4">家属姓名</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.familyName" name="familyName" required />
@@ -31,8 +29,6 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.relation" name="relation" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
         <nz-form-label nzSpan="4">联系电话</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.phone" name="phone" required />
@@ -43,8 +39,6 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.email" name="email" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
         <nz-form-label nzSpan="4">地址</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.address" name="address" required />
