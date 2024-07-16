@@ -51,11 +51,11 @@ export const USERS = {
   '/user/:id': (req: MockRequest) => list.find((w) => w.id === +req.params.id),
   'POST /user/:id': (req: MockRequest) => saveData(+req.params.id, req.body),
   '/user/current': {
-    name: 'Cipchk',
+    name: 'wshm',
     avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
     userid: '00000001',
-    email: 'cipchk@qq.com',
-    signature: '海纳百川，有容乃大',
+    email: 'wshm1234@qq.com',
+    signature: '专注.专业',
     title: '交互专家',
     group: '总公司－某某某事业群－某某平台部－某某技术部－UED',
     tags: [

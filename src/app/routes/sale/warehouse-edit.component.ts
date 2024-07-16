@@ -193,7 +193,7 @@ export class SaleWarehouseEditComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.model.id > 0) {
-      this.http.get('/warehouses').subscribe(res => (this.model = res.list[0]));
+      this.http.get('/warehouses').subscribe(res => (this.model = res.list.filter((x: any) => x.id === this.model.id)[0]));
     }
   }
 

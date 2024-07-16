@@ -76,7 +76,7 @@ export class ContactEditComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.i.id > 0) {
-      this.http.get('/contacts').subscribe(res => (this.i = res.list[0]));
+      this.http.get('/contacts').subscribe(res => (this.i = res.list.filter((x: any) => x.id === this.i.id)[0]));
     }
   }
 
