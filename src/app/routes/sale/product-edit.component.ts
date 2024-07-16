@@ -19,8 +19,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.name" name="name" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
+
         <nz-form-label nzSpan="4">产品类别</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.category" name="category" required />
@@ -31,8 +30,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.brand" name="brand" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
+
         <nz-form-label nzSpan="4">型号</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.model" name="model" required />
@@ -43,8 +41,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <nz-input-number [(ngModel)]="i.price" name="price" [nzMin]="0" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
+
         <nz-form-label nzSpan="4">库存</nz-form-label>
         <nz-form-control nzSpan="8">
           <nz-input-number [(ngModel)]="i.stock" name="stock" [nzMin]="0" required />
@@ -55,8 +52,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <nz-date-picker [(ngModel)]="i.productionDate" name="productionDate" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
+
         <nz-form-label nzSpan="4">保质期</nz-form-label>
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.shelfLife" name="shelfLife" required />
@@ -67,8 +63,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
         <nz-form-control nzSpan="8">
           <input nz-input [(ngModel)]="i.supplier" name="supplier" required />
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="mb-sm">
+
         <nz-form-label nzSpan="4">备注</nz-form-label>
         <nz-form-control nzSpan="8">
           <textarea nz-input [(ngModel)]="i.note" name="note" required></textarea>

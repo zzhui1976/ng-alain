@@ -96,8 +96,6 @@ export class MemberEditComponent {
   cancel(index: number): void {
     if (!this.items[index].key) {
       this.del(index);
-    } else {
-      this.items[index] = { ...this.editObj! };
     }
     this.editIndex = -1;
   }
