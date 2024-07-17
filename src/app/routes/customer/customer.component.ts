@@ -34,7 +34,7 @@ import { CustomerEditComponent } from './customer-edit.component';
         <button nz-button (click)="st.reset(s)" nzType="primary">搜索</button>
       </se>
     </form>
-    <st #st class="bg-white" [columns]="columns" [data]="url" [req]="{ params: s }" />
+    <st #st class="bg-white" [columns]="columns" [data]="url" [req]="{ params: s }" [widthMode]="{ type: 'strict' }" resizable />
   `
 })
 export class CustomerComponent {
