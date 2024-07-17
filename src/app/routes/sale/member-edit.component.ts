@@ -25,36 +25,36 @@ interface User {
       <tbody>
         <tr *ngFor="let item of items; let i = index">
           <td>
-            <span *ngIf="editIndex !== i">{{ item.name }}</span>
-            <nz-form-item *ngIf="editIndex === i">
+            <span *ngIf="!editObjs.has(item)">{{ item.name }}</span>
+            <nz-form-item *ngIf="editObjs.has(item)">
               <nz-form-control nzErrorTip="请输入成员姓名">
-                <input nz-input [(ngModel)]="editObj!.name" placeholder="请输入成员姓名" />
+                <input nz-input [(ngModel)]="items[i]!.name" placeholder="请输入成员姓名" />
               </nz-form-control>
             </nz-form-item>
           </td>
           <td>
-            <span *ngIf="editIndex !== i">{{ item.workId }}</span>
-            <nz-form-item *ngIf="editIndex === i">
+            <span *ngIf="!editObjs.has(item)">{{ item.workId }}</span>
+            <nz-form-item *ngIf="editObjs.has(item)">
               <nz-form-control nzErrorTip="请输入工号">
-                <input nz-input [(ngModel)]="editObj!.workId" placeholder="请输入工号" />
+                <nz-input-number [(ngModel)]="items[i]!.workId" placeholder="请输入工号" />
               </nz-form-control>
             </nz-form-item>
           </td>
           <td>
-            <span *ngIf="editIndex !== i">{{ item.department }}</span>
-            <nz-form-item *ngIf="editIndex === i">
+            <span *ngIf="!editObjs.has(item)">{{ item.department }}</span>
+            <nz-form-item *ngIf="editObjs.has(item)">
               <nz-form-control nzErrorTip="请输入所属部门">
-                <input nz-input [(ngModel)]="editObj!.department" placeholder="请输入所属部门" />
+                <input nz-input [(ngModel)]="items[i]!.department" placeholder="请输入所属部门" />
               </nz-form-control>
             </nz-form-item>
           </td>
           <td>
-            <span *ngIf="editIndex !== i">
+            <span *ngIf="!editObjs.has(item)">
               <a (click)="edit(i)">编辑</a>
               <nz-divider nzType="vertical" />
               <a nz-popconfirm nzPopconfirmTitle="是否要删除此行？" (nzOnConfirm)="del(i)">删除</a>
             </span>
-            <span *ngIf="editIndex === i">
+            <span *ngIf="editObjs.has(item)">
               <a (click)="save(i)">保存</a>
               <nz-divider nzType="vertical" />
               <a nz-popconfirm nzPopconfirmTitle="是否要取消操作？" (nzOnConfirm)="cancel(i)">取消</a>
@@ -69,12 +69,15 @@ export class MemberEditComponent {
   @Input() items: User[] = [];
   @Output() readonly itemsChange = new EventEmitter<User[]>();
 
-  editIndex = -1;
-  editObj: User | null = null;
+  //editIndex = -1;
+  editObjs = new Map();
+  newObjs = new Map();
 
   add(): void {
-    this.items.push({ key: '', workId: '', name: '', department: '' });
+    let newObj = { key: '', workId: '', name: '', department: '' };
+    this.items.push(newObj);
     this.edit(this.items.length - 1);
+    this.newObjs.set(newObj, newObj);
   }
 
   del(index: number): void {
@@ -83,20 +86,22 @@ export class MemberEditComponent {
   }
 
   edit(index: number): void {
-    this.editObj = { ...this.items[index] };
-    this.editIndex = index;
+    this.editObjs.set(this.items[index], { ...this.items[index] });
   }
 
   save(index: number): void {
-    this.items[index] = { ...this.editObj! };
-    this.editIndex = -1;
+    this.editObjs.delete(this.items[index]);
     this.itemsChange.emit(this.items);
   }
 
   cancel(index: number): void {
-    if (!this.items[index].key) {
-      this.del(index);
+    let oldobj = this.editObjs.get(this.items[index]);
+    this.editObjs.delete(this.items[index]);
+    if (this.newObjs.has(this.items[index])) {
+      this.newObjs.delete(this.items[index]);
+      this.items.splice(index, 1);
+    } else {
+      this.items[index] = oldobj;
     }
-    this.editIndex = -1;
   }
 }

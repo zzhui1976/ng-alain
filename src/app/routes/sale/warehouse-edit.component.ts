@@ -117,7 +117,7 @@ import { MemberEditComponent } from './member-edit.component';
           </nz-card>
           <nz-card [nzBordered]="false" nzTitle="成员管理">
             <app-member-edit #t [items]="model.items" (itemsChange)="model.items = $event" />
-            <button *ngIf="t.editIndex === -1" nz-button [nzType]="'dashed'" (click)="t.add()" nzBlock class="mt-md">
+            <button nz-button type="button" [nzType]="'dashed'" (click)="t.add()" nzBlock class="mt-md">
               <i nz-icon nzType="plus"></i>
               <span>新增成员</span>
             </button>
