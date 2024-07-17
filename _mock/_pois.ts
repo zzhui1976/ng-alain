@@ -141,13 +141,13 @@ export const POIS = {
         "items": [
           {
             "key": "alpha1",
-            "workId": "A001",
+            "workId": 1,
             "name": "Solar Panel Study",
             "department": "Energy Research"
           },
           {
             "key": "alpha2",
-            "workId": "A002",
+            "workId": 2,
             "name": "Wind Turbine Analysis",
             "department": "Energy Research"
           }
@@ -173,13 +173,13 @@ export const POIS = {
         "items": [
           {
             "key": "beta1",
-            "workId": "M001",
+            "workId": 3,
             "name": "Social Media Ads",
             "department": "Digital Marketing"
           },
           {
             "key": "beta2",
-            "workId": "M002",
+            "workId": 4,
             "name": "Email Newsletter",
             "department": "Digital Marketing"
           }
