@@ -5,6 +5,7 @@ import { SharedModule } from '@shared';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { SaleCustomerOrderEditComponent } from './customer-order-edit.component';
+import { EnumService } from './enum.service';
 
 @Component({
   selector: 'app-sale-customer-order',
@@ -19,10 +20,7 @@ import { SaleCustomerOrderEditComponent } from './customer-order-edit.component'
       <se>
         <nz-select [(ngModel)]="s.status" name="status" [nzAllowClear]="false">
           <nz-option nzValue="" nzLabel="状态不限" />
-          <nz-option nzValue="1" nzLabel="待支付" />
-          <nz-option nzValue="2" nzLabel="已支付" />
-          <nz-option nzValue="3" nzLabel="已取消" />
-          <nz-option nzValue="4" nzLabel="已完成" />
+          <nz-option *ngFor="let item of enumService.getEnumOptions('orderStatus')" [nzValue]="item.value" [nzLabel]="item.label" />
         </nz-select>
       </se>
       <se>
@@ -41,6 +39,7 @@ import { SaleCustomerOrderEditComponent } from './customer-order-edit.component'
 export class SaleCustomerOrderComponent {
   private readonly msg = inject(NzMessageService);
   private readonly modal = inject(ModalHelper);
+  readonly enumService = inject(EnumService);
 
   @ViewChild('st', { static: true })
   st!: STComponent;
@@ -56,7 +55,7 @@ export class SaleCustomerOrderComponent {
     { title: '订单编号', index: 'id', width: '100px' },
     { title: '客户名称', index: 'customer_name' },
     { title: '订单金额', index: 'total_amount' },
-    { title: '订单状态', index: 'status', width: '100px' },
+    { title: '订单状态', index: 'status', width: '100px', type: 'enum', enum: this.enumService.getEnum('orderStatus') },
     {
       title: '操作',
       width: '180px',
@@ -83,6 +82,8 @@ export class SaleCustomerOrderComponent {
       ]
     }
   ];
+
+  //constructor(private enumService: EnumService) {}
 
   add(): void {
     this.modal.createStatic(SaleCustomerOrderEditComponent, { i: { id: 0, items: [] } }).subscribe(() => {
