@@ -138,6 +138,7 @@ export const POIS = {
         "approver2": "David Wilson",
         "time": "2023-05-15T09:00:00Z",
         "type2": "Phase 1",
+        "status":"10",
         "items": [
           {
             "key": "alpha1",
@@ -170,6 +171,7 @@ export const POIS = {
         "approver2": "Richard Harris",
         "time": "2023-07-20T14:30:00Z",
         "type2": "Phase 2",
+        "status":"11",
         "items": [
           {
             "key": "beta1",
@@ -182,6 +184,79 @@ export const POIS = {
             "workId": 4,
             "name": "Email Newsletter",
             "department": "Digital Marketing"
+          }
+        ]
+      }
+    ]
+  },
+    '/customer-orders': {
+    total: 2,
+    list: [
+      {
+        id: 1,
+        customer_name: '张三',
+        total_amount: 1500,
+        status: '1',
+        order_date: '2023-09-01',
+        customer_address: '北京市海淀区',
+        customer_phone: '13800138000',
+        items: [
+          {
+            key: 'item1',
+            product_id: 'P001',
+            product_name: '笔记本电脑',
+            quantity: 1,
+            price: 5000
+          },
+          {
+            key: 'item2',
+            product_id: 'P002',
+            product_name: '无线鼠标',
+            quantity: 2,
+            price: 100
+          }
+        ],
+        payments: [
+          {
+            key: 'pay1',
+            payment_id: 'PAY001',
+            payment_date: '2023-09-02',
+            amount: 500,
+            status: 'Paid'
+          },
+          {
+            key: 'pay2',
+            payment_id: 'PAY002',
+            payment_date: '2023-09-15',
+            amount: 1000,
+            status: 'Pending'
+          }
+        ]
+      },
+      {
+        id: 2,
+        customer_name: '李四',
+        total_amount: 2000,
+        status: '2',
+        order_date: '2023-09-03',
+        customer_address: '上海市浦东新区',
+        customer_phone: '13900139000',
+        items: [
+          {
+            key: 'item3',
+            product_id: 'P003',
+            product_name: '智能手表',
+            quantity: 1,
+            price: 2000
+          }
+        ],
+        payments: [
+          {
+            key: 'pay3',
+            payment_id: 'PAY003',
+            payment_date: '2023-09-04',
+            amount: 2000,
+            status: 'Paid'
           }
         ]
       }

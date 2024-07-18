@@ -57,7 +57,7 @@ export class SaleWarehouseComponent {
     { title: '编号', index: 'id', width: '100px' },
     { title: '仓库名称', index: 'name' },
     { title: '管理员', index: 'manager' },
-    { title: '状态', index: 'status_str', width: '100px' },
+    { title: '状态', index: 'status', width: '100px' },
     {
       title: '操作',
       width: '180px',
@@ -85,15 +85,19 @@ export class SaleWarehouseComponent {
           text: '更多',
           children: [
             {
-              text: record => (record.id === 1 ? `过期` : `正常`),
-              click: record => this.msg.error(`${record.id === 1 ? `过期` : `正常`}【${record.name}】`)
+              text: `提交`,
+              click: record => this.msg.info(`提交-${record.name}`),
+              iif: record => record.status === '10',
+              iifBehavior: 'disabled'
+            },
+            {
+              type: 'divider'
             },
             {
               text: `审核`,
-              click: record => this.msg.info(`check-${record.name}`),
-              iif: record => record.id % 2 === 0,
-              iifBehavior: 'disabled',
-              tooltip: 'This is tooltip'
+              click: record => this.msg.info(`审核-${record.name}`),
+              iif: record => record.status === '11',
+              iifBehavior: 'disabled'
             },
             {
               type: 'divider'

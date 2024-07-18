@@ -98,7 +98,7 @@
             },
             {
               "text": "个人订单管理",
-              "link": "/dashboard/workplace"
+              "link": "/sale/customer-order"
             },
             {
               "text": "法人订单管理",
