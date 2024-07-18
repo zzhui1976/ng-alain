@@ -23,14 +23,19 @@ import { PaymentEditComponent } from './payment-edit.component';
             <nz-form-item class="mb-sm">
               <nz-form-label nzSpan="4" nzFor="customer_name">客户名称</nz-form-label>
               <nz-form-control nzSpan="8" nzErrorTip="请输入客户名称">
-                <input
-                  nz-input
+                <nz-select
+                  nzShowSearch
+                  [nzServerSearch]="true"
+                  [(ngModel)]="i.customer"
                   name="customer_name"
-                  id="customer_name"
-                  placeholder="请输入客户名称"
-                  [(ngModel)]="i.customer_name"
-                  required
-                />
+                  [compareWith]="compareFn"
+                  nzAllowClear
+                  nzPlaceHolder="请选择"
+                >
+                  <nz-option *ngFor="let item of customerList" [nzValue]="item" [nzLabel]="item.name" />
+
+                  <nz-option [nzValue]="i.customer" [nzLabel]="i.customer.name" [nzHide]="true" />
+                </nz-select>
               </nz-form-control>
 
               <nz-form-label nzSpan="4">订单金额</nz-form-label>
@@ -110,6 +115,12 @@ export class SaleCustomerOrderEditComponent implements OnInit {
   readonly msgSrv = inject(NzMessageService);
   private readonly modal = inject(NzModalRef);
   readonly http = inject(_HttpClient);
+
+  customerList = [
+    { id: 1, name: '张三' },
+    { id: 2, name: '李四' }
+  ];
+  compareFn = (o1: any, o2: any): boolean => (o1 && o2 ? o1.id === o2.id : o1 === o2);
 
   i: any;
 

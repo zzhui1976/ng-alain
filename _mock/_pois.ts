@@ -194,7 +194,7 @@ export const POIS = {
     list: [
       {
         id: 1,
-        customer_name: '张三',
+        customer: {id:1,name:'张三'},
         total_amount: 1500,
         status: '1',
         order_date: '2023-09-01',
@@ -235,7 +235,34 @@ export const POIS = {
       },
       {
         id: 2,
-        customer_name: '李四',
+        customer: {id:2,name:'李四'},
+        total_amount: 2000,
+        status: '2',
+        order_date: '2023-09-03',
+        customer_address: '上海市浦东新区',
+        customer_phone: '13900139000',
+        items: [
+          {
+            key: 'item3',
+            product_id: 'P003',
+            product_name: '智能手表',
+            quantity: 1,
+            price: 2000
+          }
+        ],
+        payments: [
+          {
+            key: 'pay3',
+            payment_id: 'PAY003',
+            payment_date: '2023-09-04',
+            amount: 2000,
+            status: 'Paid'
+          }
+        ]
+      },
+      {
+        id: 3,
+        customer: {id:3,name:'王五'},
         total_amount: 2000,
         status: '2',
         order_date: '2023-09-03',

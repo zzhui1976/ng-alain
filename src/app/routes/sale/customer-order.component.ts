@@ -24,7 +24,7 @@ import { EnumService } from './enum.service';
         </nz-select>
       </se>
       <se>
-        <input nz-input [(ngModel)]="s.customer_id" name="customer_id" placeholder="客户编号" />
+        <input nz-input [(ngModel)]="s.customer_name" name="customer_name" placeholder="客户姓名" />
       </se>
       <se>
         <input nz-input [(ngModel)]="s.order_id" name="order_id" placeholder="订单编号" />
@@ -46,14 +46,14 @@ export class SaleCustomerOrderComponent {
   s = {
     pi: 1,
     ps: 10,
-    customer_id: '',
+    customer_name: '',
     status: '',
     order_id: ''
   };
   url = '/customer-orders';
   columns: STColumn[] = [
     { title: '订单编号', index: 'id', width: '100px' },
-    { title: '客户名称', index: 'customer_name' },
+    { title: '客户名称', index: 'customer.name' },
     { title: '订单金额', index: 'total_amount' },
     { title: '订单状态', index: 'status', width: '100px', type: 'enum', enum: this.enumService.getEnum('orderStatus') },
     {
