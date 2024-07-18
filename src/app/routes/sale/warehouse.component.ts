@@ -67,18 +67,50 @@ export class SaleWarehouseComponent {
           type: 'modal',
           modal: {
             component: SaleWarehouseEditComponent,
-            paramsName: 'model'
+            paramsName: 'i'
           },
           click: () => this.msg.info('回调，重新发起列表刷新')
         },
-        { text: '查看详情', click: () => this.msg.info('click detail') },
-        { text: '删除', click: () => this.msg.info('click delete') }
+        {
+          text: '查看详情',
+          type: 'modal',
+          modal: {
+            component: SaleWarehouseEditComponent,
+            paramsName: 'i'
+          },
+          click: () => this.msg.info('回调，重新发起列表刷新')
+        },
+        { text: '删除', click: () => this.msg.info('click delete') },
+        {
+          text: '更多',
+          children: [
+            {
+              text: record => (record.id === 1 ? `过期` : `正常`),
+              click: record => this.msg.error(`${record.id === 1 ? `过期` : `正常`}【${record.name}】`)
+            },
+            {
+              text: `审核`,
+              click: record => this.msg.info(`check-${record.name}`),
+              iif: record => record.id % 2 === 0,
+              iifBehavior: 'disabled',
+              tooltip: 'This is tooltip'
+            },
+            {
+              type: 'divider'
+            },
+            {
+              text: `重新开始`,
+              icon: 'edit',
+              click: record => this.msg.success(`重新开始【${record.name}】`)
+            }
+          ]
+        }
       ]
     }
   ];
 
   add(): void {
-    this.modal.createStatic(SaleWarehouseEditComponent, { model: { id: 0, items: [] } }).subscribe(() => {
+    this.modal.createStatic(SaleWarehouseEditComponent, { i: { id: 0, items: [] } }).subscribe(() => {
       this.st.load();
       this.msg.info('回调，重新发起列表刷新');
     });
