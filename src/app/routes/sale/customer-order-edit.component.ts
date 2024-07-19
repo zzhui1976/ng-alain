@@ -4,6 +4,7 @@ import { SharedModule } from '@shared';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalRef } from 'ng-zorro-antd/modal';
 
+import { EnumService } from './enum.service';
 import { OrderProductEditComponent } from './order-product-edit.component';
 import { PaymentEditComponent } from './payment-edit.component';
 
@@ -25,16 +26,13 @@ import { PaymentEditComponent } from './payment-edit.component';
               <nz-form-control nzSpan="8" nzErrorTip="请输入客户名称">
                 <nz-select
                   nzShowSearch
-                  [nzServerSearch]="true"
                   [(ngModel)]="i.customer"
                   name="customer_name"
                   [compareWith]="compareFn"
                   nzAllowClear
                   nzPlaceHolder="请选择"
                 >
-                  <nz-option *ngFor="let item of customerList" [nzValue]="item" [nzLabel]="item.name" />
-
-                  <nz-option [nzValue]="i.customer" [nzLabel]="i.customer.name" [nzHide]="true" />
+                  <nz-option *ngFor="let item of customerList" [nzValue]="item" [nzLabel]="item.name" [nzHide]="item.hide" />
                 </nz-select>
               </nz-form-control>
 
@@ -48,10 +46,7 @@ import { PaymentEditComponent } from './payment-edit.component';
               <nz-form-label nzSpan="4">订单状态</nz-form-label>
               <nz-form-control nzSpan="8" nzErrorTip="请选择订单状态">
                 <nz-select name="status" [nzPlaceHolder]="'请选择订单状态'" [nzShowSearch]="true" [(ngModel)]="i.status" required>
-                  <nz-option nzValue="1" nzLabel="待支付" />
-                  <nz-option nzValue="2" nzLabel="已支付" />
-                  <nz-option nzValue="3" nzLabel="已取消" />
-                  <nz-option nzValue="4" nzLabel="已完成" />
+                  <nz-option *ngFor="let item of orderStatusOptions" [nzValue]="item.value" [nzLabel]="item.label" />
                 </nz-select>
               </nz-form-control>
 
@@ -115,10 +110,14 @@ export class SaleCustomerOrderEditComponent implements OnInit {
   readonly msgSrv = inject(NzMessageService);
   private readonly modal = inject(NzModalRef);
   readonly http = inject(_HttpClient);
+  readonly enumService = inject(EnumService);
+
+  orderStatusOptions = this.enumService.getEnumOptions('orderStatus');
 
   customerList = [
     { id: 1, name: '张三' },
-    { id: 2, name: '李四' }
+    { id: 2, name: '李四' },
+    { id: 3, name: '王五', hide: true }
   ];
   compareFn = (o1: any, o2: any): boolean => (o1 && o2 ? o1.id === o2.id : o1 === o2);
 

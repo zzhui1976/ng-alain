@@ -83,8 +83,6 @@ export class SaleCustomerOrderComponent {
     }
   ];
 
-  //constructor(private enumService: EnumService) {}
-
   add(): void {
     this.modal.createStatic(SaleCustomerOrderEditComponent, { i: { id: 0, items: [] } }).subscribe(() => {
       this.st.load();
