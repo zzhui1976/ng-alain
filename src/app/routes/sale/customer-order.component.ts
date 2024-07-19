@@ -20,7 +20,7 @@ import { EnumService } from './enum.service';
       <se>
         <nz-select [(ngModel)]="s.status" name="status" [nzAllowClear]="false">
           <nz-option nzValue="" nzLabel="状态不限" />
-          <nz-option *ngFor="let item of enumService.getEnumOptions('orderStatus')" [nzValue]="item.value" [nzLabel]="item.label" />
+          <nz-option *ngFor="let item of orderStatusOptions" [nzValue]="item.value" [nzLabel]="item.label" />
         </nz-select>
       </se>
       <se>
@@ -40,6 +40,7 @@ export class SaleCustomerOrderComponent {
   private readonly msg = inject(NzMessageService);
   private readonly modal = inject(ModalHelper);
   readonly enumService = inject(EnumService);
+  orderStatusOptions = this.enumService.getEnumOptions('orderStatus');
 
   @ViewChild('st', { static: true })
   st!: STComponent;

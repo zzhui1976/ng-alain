@@ -222,14 +222,14 @@ export const POIS = {
             payment_id: 'PAY001',
             payment_date: '2023-09-02',
             amount: 500,
-            status: 'Paid'
+            status: '1'
           },
           {
             key: 'pay2',
             payment_id: 'PAY002',
             payment_date: '2023-09-15',
             amount: 1000,
-            status: 'Pending'
+            status: '2'
           }
         ]
       },
@@ -256,7 +256,7 @@ export const POIS = {
             payment_id: 'PAY003',
             payment_date: '2023-09-04',
             amount: 2000,
-            status: 'Paid'
+            status: '1'
           }
         ]
       },
@@ -283,7 +283,7 @@ export const POIS = {
             payment_id: 'PAY003',
             payment_date: '2023-09-04',
             amount: 2000,
-            status: 'Paid'
+            status: '2'
           }
         ]
       }

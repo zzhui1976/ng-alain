@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { SharedModule } from '@shared';
+
+import { EnumService } from './enum.service';
 
 interface Payment {
   key: string;
@@ -51,13 +53,11 @@ interface Payment {
             </nz-form-item>
           </td>
           <td>
-            <span *ngIf="!editObjs.has(item)">{{ item.status }}</span>
+            <span *ngIf="!editObjs.has(item)">{{ enumService.getEnumLabel('orderStatus', item.status) }}</span>
             <nz-form-item *ngIf="editObjs.has(item)">
               <nz-form-control nzErrorTip="请选择状态">
                 <nz-select [(ngModel)]="items[i]!.status" placeholder="请选择状态">
-                  <nz-option nzValue="Pending" nzLabel="待支付" />
-                  <nz-option nzValue="Paid" nzLabel="已支付" />
-                  <nz-option nzValue="Cancelled" nzLabel="已取消" />
+                  <nz-option *ngFor="let item of orderStatusOptions" [nzValue]="item.value" [nzLabel]="item.label" />
                 </nz-select>
               </nz-form-control>
             </nz-form-item>
@@ -82,6 +82,9 @@ interface Payment {
 export class PaymentEditComponent {
   @Input() items: Payment[] = [];
   @Output() readonly itemsChange = new EventEmitter<Payment[]>();
+
+  readonly enumService = inject(EnumService);
+  orderStatusOptions = this.enumService.getEnumOptions('orderStatus');
 
   editObjs = new Map();
   newObjs = new Map();
