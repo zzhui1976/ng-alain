@@ -4,16 +4,16 @@ import { ModalHelper } from '@delon/theme';
 import { SharedModule } from '@shared';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
-import { SaleCustomerOrderEditComponent } from './customer-order-edit.component';
 import { EnumService } from './enum.service';
+import { GroupCustomerOrderEditComponent } from './group-customer-order-edit.component';
 
 @Component({
-  selector: 'app-sale-customer-order',
+  selector: 'app-sale001-group-customer-order',
   standalone: true,
   imports: [SharedModule],
   template: `
     <div class="alain-default__content-title">
-      <h1>个人客户仓订单</h1>
+      <h1>团体客户仓订单</h1>
       <button nz-button (click)="add()" [nzType]="'primary'">添加</button>
     </div>
     <form nz-form nzLayout="inline" se-container>
@@ -24,7 +24,7 @@ import { EnumService } from './enum.service';
         </nz-select>
       </se>
       <se>
-        <input nz-input [(ngModel)]="s.customer_name" name="customer_name" placeholder="客户姓名" />
+        <input nz-input [(ngModel)]="s.customer_name" name="customer_name" placeholder="客户名称" />
       </se>
       <se>
         <input nz-input [(ngModel)]="s.order_id" name="order_id" placeholder="订单编号" />
@@ -36,7 +36,7 @@ import { EnumService } from './enum.service';
     <st #st class="bg-white" [columns]="columns" [data]="url" [req]="{ params: s }" />
   `
 })
-export class SaleCustomerOrderComponent {
+export class GroupCustomerOrderComponent {
   private readonly msg = inject(NzMessageService);
   private readonly modal = inject(ModalHelper);
   readonly enumService = inject(EnumService);
@@ -51,7 +51,7 @@ export class SaleCustomerOrderComponent {
     status: '',
     order_id: ''
   };
-  url = '/customer-orders';
+  url = '/group-customer-orders';
   columns: STColumn[] = [
     { title: '订单编号', index: 'id', width: '100px' },
     { title: '客户名称', index: 'customer.name' },
@@ -65,7 +65,7 @@ export class SaleCustomerOrderComponent {
           text: '编辑',
           type: 'modal',
           modal: {
-            component: SaleCustomerOrderEditComponent,
+            component: GroupCustomerOrderEditComponent,
             paramsName: 'i'
           },
           click: () => this.msg.info('回调，重新发起列表刷新')
@@ -74,7 +74,7 @@ export class SaleCustomerOrderComponent {
           text: '查看详情',
           type: 'modal',
           modal: {
-            component: SaleCustomerOrderEditComponent,
+            component: GroupCustomerOrderEditComponent,
             paramsName: 'i'
           },
           click: () => this.msg.info('回调，重新发起列表刷新')
@@ -85,7 +85,7 @@ export class SaleCustomerOrderComponent {
   ];
 
   add(): void {
-    this.modal.createStatic(SaleCustomerOrderEditComponent, { i: { id: 0, items: [], payments: [] } }).subscribe(() => {
+    this.modal.createStatic(GroupCustomerOrderEditComponent, { i: { id: 0, items: [], employees: [] } }).subscribe(() => {
       this.st.load();
       this.msg.info('回调，重新发起列表刷新');
     });

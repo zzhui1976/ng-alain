@@ -288,5 +288,113 @@ export const POIS = {
         ]
       }
     ]
+  },
+  '/group-customer-orders': {
+    total: 2,
+    list: [
+      {
+        id: 1,
+        customer: { id: 1, name: 'xx有限责任公司' },
+        total_amount: 1500,
+        status: '1',
+        order_date: '2023-09-01',
+        customer_address: '北京市海淀区',
+        customer_phone: '13800138000',
+        legal_representative: '张三',
+        registered_capital: 1000000,
+        establishment_date: '2020-01-01',
+        business_scope: '电子产品销售',
+        tax_registration_number: '123456789',
+        organization_code: '987654321',
+        business_license_number: 'ABC123456',
+        bank_name: '中国银行',
+        bank_account: '1234567890123456',
+        contact_person: '李四',
+        contact_phone: '13900139000',
+        email: 'zhangsan@example.com',
+        postal_code: '100080',
+        remarks: '备注信息',
+        items: [
+          {
+            key: 'item1',
+            product_id: 'P001',
+            product_name: '笔记本电脑',
+            quantity: 1,
+            price: 5000
+          },
+          {
+            key: 'item2',
+            product_id: 'P002',
+            product_name: '无线鼠标',
+            quantity: 2,
+            price: 100
+          }
+        ],
+        employees: [
+          {
+            key: 'emp1',
+            employee_id: 'E001',
+            employee_name: '王五',
+            position: '销售经理',
+            phone: '13800138000'
+          },
+          {
+            key: 'emp2',
+            employee_id: 'E002',
+            employee_name: '赵六',
+            position: '销售代表',
+            phone: '13900139000'
+          }
+        ]
+      },
+      {
+        id: 2,
+        customer: { id: 2, name: 'xx总局' },
+        total_amount: 2000,
+        status: '2',
+        order_date: '2023-09-03',
+        customer_address: '上海市浦东新区',
+        customer_phone: '13900139000',
+        legal_representative: '李四',
+        registered_capital: 2000000,
+        establishment_date: '2019-01-01',
+        business_scope: '家居用品销售',
+        tax_registration_number: '987654321',
+        organization_code: '123456789',
+        business_license_number: 'DEF123456',
+        bank_name: '工商银行',
+        bank_account: '6543210987654321',
+        contact_person: '王五',
+        contact_phone: '13800138000',
+        email: 'lisi@example.com',
+        postal_code: '200120',
+        remarks: '备注信息',
+        items: [
+          {
+            key: 'item3',
+            product_id: 'P003',
+            product_name: '智能手表',
+            quantity: 1,
+            price: 2000
+          }
+        ],
+        employees: [
+          {
+            key: 'emp3',
+            employee_id: 'E003',
+            employee_name: '孙七',
+            position: '市场经理',
+            phone: '13800138000'
+          },
+          {
+            key: 'emp4',
+            employee_id: 'E004',
+            employee_name: '周八',
+            position: '市场代表',
+            phone: '13900139000'
+          }
+        ]
+      }
+    ]
   }
 };
