@@ -51,7 +51,7 @@ export class GroupCustomerOrderComponent {
     status: '',
     order_id: ''
   };
-  url = '/group-customer-orders';
+  url = '/sale001/group-customer-order/query';
   columns: STColumn[] = [
     { title: '订单编号', index: 'id', width: '100px' },
     { title: '客户名称', index: 'customer.name' },

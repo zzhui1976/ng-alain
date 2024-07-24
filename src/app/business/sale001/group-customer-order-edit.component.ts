@@ -222,12 +222,12 @@ export class GroupCustomerOrderEditComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.i.id > 0) {
-      this.http.get('/group-customer-orders').subscribe(res => (this.i = res.list.filter((x: any) => x.id === this.i.id)[0]));
+      this.http.get(`/sale001/group-customer-order/load/${this.i.id}`).subscribe(res => (this.i = res.list[0]));
     }
   }
 
   save(): void {
-    this.http.get('/group-customer-orders').subscribe(() => {
+    this.http.post(`/sale001/group-customer-order/save/${this.i.id}`, this.i).subscribe(() => {
       this.msgSrv.success('保存成功');
       this.modal.destroy(true);
     });
