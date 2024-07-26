@@ -116,6 +116,37 @@
         
           ]
         },
+        {
+          "text": "资产管理",
+          "icon": "anticon-cloud",
+          "children": [
+            {
+              "text": "风险监控管理",
+              "link": "/business/view001-investment-risk-dashboard"
+            },
+            {
+              "text": "权益类风险管理",
+              "link": "/sale/product"
+            },
+            {
+              "text": "固收类风险管理",
+              "link": "/sale/warehouse"
+            },
+            {
+              "text": "期权风险管理",
+              "link": "/sale/opportunity"
+            },
+            {
+              "text": "投资组合风险管理",
+              "link": "/sale/customer-order"
+            },
+            {
+              "text": "仓位分析",
+              "link": "/business/sale003-corporate-customer-order"
+            }
+         
+          ]
+        },
 
         {
           "text": "快捷菜单",
