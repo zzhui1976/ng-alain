@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '@shared';
 import { EChartsOption } from 'echarts';
+import { NzMarks } from 'ng-zorro-antd/slider';
 
 @Component({
   selector: 'app-fund-chart',
@@ -11,9 +12,10 @@ import { EChartsOption } from 'echarts';
     <nz-card [nzBordered]="false" nzTitle="投资收益率分析">
       <div nz-row>
         <div nz-col nzSpan="24">
-          <nz-slider [nzMin]="10" [nzMax]="100" [(ngModel)]="days" (nzOnAfterChange)="onDaysChange($event)" />
+          <nz-slider [nzMarks]="marks" nzRange [nzMin]="-100" [nzMax]="0" [(ngModel)]="days" (nzOnAfterChange)="onDaysChange($event)" />
         </div>
       </div>
+      <br />
 
       <div nz-row>
         <div nz-col nzSpan="24">
@@ -25,7 +27,13 @@ import { EChartsOption } from 'echarts';
 })
 export class FundChartComponent implements OnInit {
   chartOption: EChartsOption = {};
-  days = 30;
+
+  today = new Date().toLocaleDateString();
+  fromday = new Date(new Date().setDate(-100)).toLocaleDateString();
+
+  marks: NzMarks = { '-100': this.fromday, '0': this.today, '-30': new Date(new Date().setDate(-30)).toLocaleDateString() };
+
+  days = [-30, 0];
 
   constructor(private http: HttpClient) {}
 
@@ -34,7 +42,7 @@ export class FundChartComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.http.get(`/view002/funds?days=${this.days}`).subscribe((data: any) => {
+    this.http.get(`/view002/funds?days=${this.days[1] - this.days[0]}`).subscribe((data: any) => {
       this.updateChart(data);
     });
   }
@@ -60,7 +68,9 @@ export class FundChartComponent implements OnInit {
       },
       xAxis: {
         type: 'category',
-        data: Array.from({ length: this.days }, (_, i) => `Day ${i + 1}`)
+        data: Array.from({ length: this.days[1] - this.days[0] }, (_, i) =>
+          new Date(new Date().setDate(this.days[0] + i)).toLocaleDateString()
+        )
       },
       yAxis: {
         type: 'value',
@@ -72,9 +82,17 @@ export class FundChartComponent implements OnInit {
     };
   }
 
-  onDaysChange(days: any): void {
+  onDaysChange(days: number[] | number): void {
     //this.days = days;
-    console.log(`onChange: ${this.days}`);
+
+    this.marks = {
+      '-100': this.fromday,
+      '0': this.today
+    };
+    this.marks[`${this.days[0]}`] = new Date(new Date().setDate(this.days[0])).toLocaleDateString();
+    this.marks[`${this.days[1]}`] = new Date(new Date().setDate(this.days[1])).toLocaleDateString();
+
+    console.log(`onChange: ${this.days[1] - this.days[0]}`);
     this.fetchData();
   }
 }
