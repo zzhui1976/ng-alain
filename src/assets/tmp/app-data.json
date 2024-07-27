@@ -118,7 +118,7 @@
         },
         {
           "text": "资产管理",
-          "icon": "anticon-cloud",
+          "icon": "anticon-rocket",
           "children": [
             {
               "text": "风险监控管理",
@@ -133,6 +133,10 @@
               "link": "/sale/warehouse"
             },
             {
+              "text": "大宗商品风险管理",
+              "link": "/sale/opportunity"
+            },
+            {
               "text": "期权风险管理",
               "link": "/sale/opportunity"
             },
@@ -142,6 +146,37 @@
             },
             {
               "text": "仓位分析",
+              "link": "/business/sale003-corporate-customer-order"
+            }
+         
+          ]
+        },
+        {
+          "text": "资产规划",
+          "icon": "anticon-cloud",
+          "children": [
+            {
+              "text": "经济数据分析",
+              "link": "/business/view001-investment-risk-dashboard"
+            },
+            {
+              "text": "货币数据分析",
+              "link": "/sale/product"
+            },
+            {
+              "text": "产业数据分析",
+              "link": "/sale/warehouse"
+            },
+            {
+              "text": "地产走势分析",
+              "link": "/sale/opportunity"
+            },
+            {
+              "text": "资产配置分析",
+              "link": "/sale/customer-order"
+            },
+            {
+              "text": "长期投资规划",
               "link": "/business/sale003-corporate-customer-order"
             }
          
