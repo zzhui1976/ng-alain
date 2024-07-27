@@ -22,6 +22,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzTableModule } from 'ng-zorro-antd/table';
@@ -61,5 +62,6 @@ export const SHARED_ZORRO_MODULES = [
   NzCardModule,
   NzDividerModule,
   NzProgressModule,
-  NzPopconfirmModule
+  NzPopconfirmModule,
+  NzSliderModule
 ];

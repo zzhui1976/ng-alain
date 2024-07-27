@@ -121,8 +121,8 @@
           "icon": "anticon-rocket",
           "children": [
             {
-              "text": "风险监控管理",
-              "link": "/business/view001-investment-risk-dashboard"
+              "text": "投资收益率分析",
+              "link": "/business/view002-fund-chart"
             },
             {
               "text": "权益类风险管理",
