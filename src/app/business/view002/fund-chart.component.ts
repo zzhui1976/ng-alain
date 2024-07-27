@@ -11,7 +11,7 @@ import { EChartsOption } from 'echarts';
     <nz-card [nzBordered]="false" nzTitle="投资收益率分析">
       <div nz-row>
         <div nz-col nzSpan="24">
-          <nz-slider [nzMin]="10" [nzMax]="100" [(ngModel)]="days" (ngModelChange)="onDaysChange($event)" />
+          <nz-slider [nzMin]="10" [nzMax]="100" [(ngModel)]="days" (nzOnAfterChange)="onDaysChange($event)" />
         </div>
       </div>
 
@@ -72,8 +72,9 @@ export class FundChartComponent implements OnInit {
     };
   }
 
-  onDaysChange(days: number): void {
-    this.days = days;
+  onDaysChange(days: any): void {
+    //this.days = days;
+    console.log(`onChange: ${this.days}`);
     this.fetchData();
   }
 }

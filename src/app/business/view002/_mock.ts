@@ -30,7 +30,7 @@ const generateRandomData = (days: number) => {
 
 export const FUNDS = {
   '/view002/funds': (req: MockRequest) => {
-    const days = parseInt(req.params.days, 10) || 30;
+    const days = parseInt(req.queryString.days, 10) || 30;
     return generateRandomData(days);
   }
 };
