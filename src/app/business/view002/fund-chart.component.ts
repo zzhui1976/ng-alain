@@ -14,9 +14,10 @@ import { NzMarks } from 'ng-zorro-antd/slider';
         <div nz-col nzSpan="24">
           <nz-slider
             [nzMarks]="marks"
+            [nzTipFormatter]="cal_formatter"
             nzRange
-            [nzMin]="-slider_len + 1"
-            [nzMax]="0"
+            [nzMin]="0"
+            [nzMax]="slider_len - 1"
             [(ngModel)]="days"
             (nzOnAfterChange)="onDaysChange($event)"
           />
@@ -37,9 +38,15 @@ export class FundChartComponent implements OnInit {
 
   marks: NzMarks = {};
 
-  days = [-30, 0];
-  slider_len = 101;
+  days = [0, 0];
+  slider_len = 1;
   trade_cal = [];
+
+  cal_formatter = (value: number): string => {
+    //return `${value}%`;
+    // console.log(this.trade_cal[value]);
+    return this.trade_cal[value];
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -47,6 +54,7 @@ export class FundChartComponent implements OnInit {
     this.http.get(`/view002/trade_cal`).subscribe((result: any) => {
       this.trade_cal = result.trade_cal;
       this.slider_len = this.trade_cal.length;
+      this.days = [this.slider_len - 30, this.slider_len - 1];
 
       this.updateSliderMarker();
 
@@ -56,20 +64,17 @@ export class FundChartComponent implements OnInit {
   }
 
   fetchData(): void {
-    let from_date = this.trade_cal[this.trade_cal.length - 1 + this.days[0]];
-    let to_date = this.trade_cal[this.trade_cal.length - 1 + this.days[1]];
-
-    this.http.get(`/view002/funds?from_date=${from_date}&to_date=${to_date}`).subscribe((result: any) => {
-      this.updateChart(result.data, result.trade_cal_range);
-    });
+    this.http
+      .get(`/view002/funds?from_date=${this.trade_cal[this.days[0]]}&to_date=${this.trade_cal[this.days[1]]}`)
+      .subscribe((result: any) => {
+        this.updateChart(result.data, result.trade_cal_range);
+      });
   }
 
   updateSliderMarker(): void {
     this.marks = {};
-    let marks_index: number[] = [0, -this.trade_cal.length + 1, this.days[0], this.days[1]];
-    for (let index of marks_index) {
-      this.marks[`${index}`] = this.trade_cal[this.trade_cal.length - 1 + index];
-    }
+    this.marks[`${this.days[0]}`] = this.trade_cal[this.days[0]];
+    this.marks[`${this.days[1]}`] = this.trade_cal[this.days[1]];
   }
 
   updateChart(data: any, trade_cal_range: any): void {

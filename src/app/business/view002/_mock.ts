@@ -16,7 +16,11 @@ const fundNames = [
 
 const trade_cal: string[] = [];
 for (let i = 100; i >= 0; i--) {
-  trade_cal.push(new Date(new Date().setDate(-i)).toLocaleDateString());
+  let currentDate = new Date();
+
+  // 设置当前日期前100天的日期
+  currentDate.setDate(currentDate.getDate() - i);
+  trade_cal.push(currentDate.toLocaleDateString());
 }
 
 const generateRandomData = (from_date: string, to_date: string) => {
@@ -29,7 +33,7 @@ const generateRandomData = (from_date: string, to_date: string) => {
     data[fund] = [0];
     for (let i = 1; i < days; i++) {
       const prevReturn = data[fund][i - 1];
-      const randomGrowth = (Math.random() * 20 - 10) / 100; // -10% to 10%
+      const randomGrowth = fund == '无风险3年定存' ? 1.5 / 360 : (Math.random() * 20 - 9) / 100; // -10% to 10%
       const newReturn = (1 + prevReturn) * (1 + randomGrowth) - 1;
       data[fund].push(newReturn);
     }
