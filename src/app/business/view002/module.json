@@ -1,0 +1,15 @@
+{
+  "module": "view002",
+  "requirement": "制作一个区间累积收益率折线图，时间区间可以自定义，用滑杆来定义起始时间区间，从中国市场选取10只常见的etf基金（沪深300必选），再加上一个无风险3年定存（放最前），起始累积收益率都为0，后面的由模拟程序自动随机生成，就是随机生成一个【-10%，10%】的增长率，（1+前一日累积收益率）*增长率-1即为当日累积收益率",
+  "description": "使用Angular技术栈，结合ng-zorro组件库和ng-alain脚手架，使用echart做图表,同时生成演示数据_mock.ts。",
+  "files": [
+    {
+      "name": "fund-chart.component.ts",
+      "description": "投资收益率分析组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}

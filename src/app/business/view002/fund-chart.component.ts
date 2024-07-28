@@ -43,7 +43,7 @@ export class FundChartComponent implements OnInit {
   trade_cal = [];
 
   cal_formatter = (value: number): string => {
-    //return `${value}%`;
+    return `${this.trade_cal[value]} [${value - this.slider_len + 1}]`;
     // console.log(this.trade_cal[value]);
     return this.trade_cal[value];
   };

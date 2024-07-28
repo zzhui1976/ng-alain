@@ -125,28 +125,29 @@
               "link": "/business/view002-fund-chart"
             },
             {
+              "text": "投资组合风险管理",
+              "link": "/business/view003-fund-chart"
+            },
+            {
               "text": "权益类风险管理",
-              "link": "/sale/product"
+              "link": ""
             },
             {
               "text": "固收类风险管理",
-              "link": "/sale/warehouse"
+              "link": ""
             },
             {
               "text": "大宗商品风险管理",
-              "link": "/sale/opportunity"
+              "link": ""
             },
             {
               "text": "期权风险管理",
-              "link": "/sale/opportunity"
+              "link": ""
             },
-            {
-              "text": "投资组合风险管理",
-              "link": "/sale/customer-order"
-            },
+
             {
               "text": "仓位分析",
-              "link": "/business/sale003-corporate-customer-order"
+              "link": ""
             }
          
           ]
@@ -157,27 +158,27 @@
           "children": [
             {
               "text": "经济数据分析",
-              "link": "/business/view001-investment-risk-dashboard"
+              "link": ""
             },
             {
               "text": "货币数据分析",
-              "link": "/sale/product"
+              "link": ""
             },
             {
               "text": "产业数据分析",
-              "link": "/sale/warehouse"
+              "link": ""
             },
             {
               "text": "地产走势分析",
-              "link": "/sale/opportunity"
+              "link": ""
             },
             {
               "text": "资产配置分析",
-              "link": "/sale/customer-order"
+              "link": ""
             },
             {
               "text": "长期投资规划",
-              "link": "/business/sale003-corporate-customer-order"
+              "link": ""
             }
          
           ]

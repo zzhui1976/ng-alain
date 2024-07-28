@@ -1,0 +1,15 @@
+{
+  "module": "view003",
+  "requirement": "用三个雷达图，分别显示各个etf基金（不含3年定期）的投资风险分析，第一个显示收益率（区间收益、今年收益、三年以来、成立以来收益，阿尔法收益），第二个显示风险指标（波动率，下行波动率，最大回撤，贝塔，Var），第三个显示风险溢价率（SHARP比率，信息比率，卡玛，索提诺，特雷诺），时间区间还是用滑轨设置，模拟数据里所有值取随机数。",
+  "description": "使用Angular技术栈，结合ng-zorro组件库和ng-alain脚手架，使用echart做图表，同时生成演示数据_mock.ts。",
+  "files": [
+    {
+      "name": "risk-analysis.component.ts",
+      "description": "投资风险分析组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}
