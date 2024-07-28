@@ -44,7 +44,15 @@ export class FundChartComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.fetchTrade_cal();
+    this.http.get(`/view002/trade_cal`).subscribe((result: any) => {
+      this.trade_cal = result.trade_cal;
+      this.slider_len = this.trade_cal.length;
+
+      this.updateSliderMarker();
+
+      console.log('ok');
+      this.fetchData();
+    });
   }
 
   fetchData(): void {
@@ -56,18 +64,12 @@ export class FundChartComponent implements OnInit {
     });
   }
 
-  fetchTrade_cal(): void {
-    this.http.get(`/view002/trade_cal`).subscribe((result: any) => {
-      this.trade_cal = result.trade_cal;
-      this.slider_len = this.trade_cal.length;
-      this.marks = {};
-      let marks_index: number[] = [0, -this.trade_cal.length + 1, this.days[0], this.days[1]];
-      for (let index of marks_index) {
-        this.marks[`${index}`] = this.trade_cal[this.trade_cal.length - 1 + index];
-      }
-      console.log('ok');
-      this.fetchData();
-    });
+  updateSliderMarker(): void {
+    this.marks = {};
+    let marks_index: number[] = [0, -this.trade_cal.length + 1, this.days[0], this.days[1]];
+    for (let index of marks_index) {
+      this.marks[`${index}`] = this.trade_cal[this.trade_cal.length - 1 + index];
+    }
   }
 
   updateChart(data: any, trade_cal_range: any): void {
@@ -105,11 +107,7 @@ export class FundChartComponent implements OnInit {
 
   onDaysChange(days: number[] | number): void {
     //this.days = days;
-    this.marks = {};
-    let marks_index: number[] = [0, -this.trade_cal.length + 1, this.days[0], this.days[1]];
-    for (let index of marks_index) {
-      this.marks[`${index}`] = this.trade_cal[this.trade_cal.length - 1 + index];
-    }
+    this.updateSliderMarker();
 
     console.log(`onChange: ${this.days[1] - this.days[0]}`);
     this.fetchData();
