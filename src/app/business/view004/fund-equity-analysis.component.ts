@@ -149,6 +149,6 @@ export class FundEquityAnalysisComponent implements OnInit {
 
   tabChange(index: number): void {
     this.selectedIndex = index;
-    this.updateCharts(index);
+    this.fetchData();
   }
 }

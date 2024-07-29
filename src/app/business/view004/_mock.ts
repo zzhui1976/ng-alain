@@ -1,7 +1,6 @@
 import { MockRequest } from '@delon/mock';
 
 const fundNames = [
-  '无风险3年定存',
   '沪深300ETF',
   '新能源ETF',
   '智能出行ETF',
