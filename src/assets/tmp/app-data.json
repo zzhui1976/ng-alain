@@ -120,28 +120,32 @@
               "link": "/business/view002-fund-chart"
             },
             {
-              "text": "投资组合风险管理",
+              "text": "投资组合风险分析",
               "link": "/business/view003-risk-analysis"
             },
             {
-              "text": "权益类风险管理",
+              "text": "权益类风险分析",
               "link": "/business/view004-fund-equity-analysis"
             },
             {
-              "text": "固收类风险管理",
+              "text": "固收类风险分析",
+              "link": "/business/view005-fixed-income-analysis"
+            },
+            {
+              "text": "仓位分析(按投资组合)",
+              "link": "/business/view006-portfolio-analysis"
+            },
+            {
+              "text": "仓位分析(按资产分类)",
               "link": ""
             },
+
             {
               "text": "大宗商品风险管理",
               "link": ""
             },
             {
               "text": "期权风险管理",
-              "link": ""
-            },
-
-            {
-              "text": "仓位分析",
               "link": ""
             }
          
