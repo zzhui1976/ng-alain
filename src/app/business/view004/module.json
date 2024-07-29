@@ -1,0 +1,15 @@
+{
+  "module": "view004",
+  "requirement": "新建一个投资权益类资产分析的组件，首先选择交易日期区间，日期区间还是用滑轨设置。每个基金一个tab页，显示基金名称、当前基金权益类资产占比的饼图，以及各类资产起初期末占比的直方图。",
+  "description": "使用Angular技术栈，结合ng-zorro组件库和ng-alain脚手架，使用echart做图表，同时生成演示数据_mock.ts。",
+  "files": [
+    {
+      "name": "fund-equity-analysis.component.ts",
+      "description": "投资权益类资产分析组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}

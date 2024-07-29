@@ -91,7 +91,7 @@ export class RiskAnalysisComponent implements OnInit {
       },
       radar: [
         {
-          center: ['17%', '60%'],
+          center: ['17%', '70%'],
           indicator: [{ name: '区间收益' }, { name: '今年收益' }, { name: '三年以来' }, { name: '成立以来' }, { name: '阿尔法收益' }]
         },
         {
@@ -99,7 +99,7 @@ export class RiskAnalysisComponent implements OnInit {
           indicator: [{ name: '波动率' }, { name: '下行波动率' }, { name: '最大回撤' }, { name: '贝塔' }, { name: 'Var' }]
         },
         {
-          center: ['83%', '60%'],
+          center: ['83%', '70%'],
           indicator: [{ name: 'SHARP比率' }, { name: '信息比率' }, { name: '卡玛' }, { name: '索提诺' }, { name: '特雷诺' }]
         }
       ],

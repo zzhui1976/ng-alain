@@ -21,11 +21,6 @@
           "icon": "anticon-dashboard",
           "children": [
             {
-              "text": "仪表盘V1",
-              "link": "/dashboard/v1",
-              "i18n": "menu.dashboard.v1"
-            },
-            {
               "text": "分析页",
               "link": "/dashboard/analysis",
               "i18n": "menu.dashboard.analysis"
@@ -126,11 +121,11 @@
             },
             {
               "text": "投资组合风险管理",
-              "link": "/business/view003-fund-chart"
+              "link": "/business/view003-risk-analysis"
             },
             {
               "text": "权益类风险管理",
-              "link": ""
+              "link": "/business/view004-fund-equity-analysis"
             },
             {
               "text": "固收类风险管理",
