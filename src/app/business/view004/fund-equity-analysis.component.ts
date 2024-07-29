@@ -33,10 +33,10 @@ import { NzTabChangeEvent } from 'ng-zorro-antd/tabs';
               @if (fund.show) {
                 <div nz-row>
                   <div nz-col nzSpan="12">
-                    <div echarts [options]="pieOptions" style="height: 300px;"></div>
+                    <div echarts [options]="pieOptionsTop" style="height: 300px;"></div>
                   </div>
                   <div nz-col nzSpan="12">
-                    <div echarts [options]="barOptions" style="height: 300px;"></div>
+                    <div echarts [options]="pieOptionsValue" style="height: 300px;"></div>
                   </div>
                 </div>
                 <div nz-row>
@@ -44,7 +44,7 @@ import { NzTabChangeEvent } from 'ng-zorro-antd/tabs';
                     <div echarts [options]="pieOptionsIndustry" style="height: 300px;"></div>
                   </div>
                   <div nz-col nzSpan="12">
-                    <div echarts [options]="barOptionsIndustry" style="height: 300px;"></div>
+                    <div echarts [options]="pieOptionsScale" style="height: 300px;"></div>
                   </div>
                 </div>
               }
@@ -56,11 +56,10 @@ import { NzTabChangeEvent } from 'ng-zorro-antd/tabs';
   `
 })
 export class FundEquityAnalysisComponent implements OnInit {
-  chartOption: EChartsOption = {};
-  pieOptions: EChartsOption = {};
-  barOptions: EChartsOption = {};
+  pieOptionsTop: EChartsOption = {};
+  pieOptionsValue: EChartsOption = {};
   pieOptionsIndustry: EChartsOption = {};
-  barOptionsIndustry: EChartsOption = {};
+  pieOptionsScale: EChartsOption = {};
 
   marks: NzMarks = {};
   days = [0, 0];
@@ -104,25 +103,46 @@ export class FundEquityAnalysisComponent implements OnInit {
 
   updateCharts(data: any): void {
     const fund = data[this.selectedIndex];
-    this.pieOptions = {
+    this.pieOptionsTop = {
+      title: {
+        text: '持仓前十'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
       series: [
         {
-          name: '权益类资产占比',
+          name: '持仓前十',
           type: 'pie',
-          data: fund.equityAssets
+          data: fund.topAssets
         }
       ]
     };
-    this.barOptions = {
+    this.pieOptionsValue = {
+      title: {
+        text: '估值占比'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
       series: [
         {
-          name: '起初期末占比',
-          type: 'bar',
-          data: fund.startEndAssets
+          name: '估值占比',
+          type: 'pie',
+          data: fund.valueAssets
         }
       ]
     };
     this.pieOptionsIndustry = {
+      title: {
+        text: '行业占比'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
       series: [
         {
           name: '行业占比',
@@ -131,12 +151,19 @@ export class FundEquityAnalysisComponent implements OnInit {
         }
       ]
     };
-    this.barOptionsIndustry = {
+    this.pieOptionsScale = {
+      title: {
+        text: '大小盘占比'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
       series: [
         {
-          name: '起初期末行业占比',
-          type: 'bar',
-          data: fund.startEndIndustryAssets
+          name: '大小盘占比',
+          type: 'pie',
+          data: fund.scaleAssets
         }
       ]
     };

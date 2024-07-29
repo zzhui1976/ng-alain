@@ -13,6 +13,46 @@ const fundNames = [
   'TMT50ETF'
 ];
 
+const stocks: string[] = [
+  '贵州茅台',
+  '工商银行',
+  '建设银行',
+  '中国石油',
+  '中国平安',
+  '中国人寿',
+  '中国银行',
+  '中国建筑',
+  '中国神华',
+  '交通银行',
+  '农业银行',
+  '光大银行',
+  '中信银行',
+  '中国太保',
+  '兴业银行',
+  '新华保险',
+  '大秦铁路',
+  '中国交建',
+  '中国电建',
+  '中国核电'
+];
+
+const getRandomStocks = (arr: string[], count: number): string[] => {
+  const shuffled = arr.slice(0); // 复制数组
+  let i = arr.length;
+  const min = i - count;
+  let temp: string, index: number;
+
+  // 洗牌算法
+  while (i-- > min) {
+    index = Math.floor((i + 1) * Math.random());
+    temp = shuffled[index];
+    shuffled[index] = shuffled[i];
+    shuffled[i] = temp;
+  }
+
+  return shuffled.slice(min);
+};
+
 const trade_cal: string[] = [];
 for (let i = 100; i >= 0; i--) {
   let currentDate = new Date();
@@ -29,29 +69,41 @@ const generateRandomData = (from_date: string, to_date: string) => {
   let trade_cal_range = trade_cal.slice(from_index, to_index + 1);
   const data = [] as Array<{
     name: string;
-    equityAssets: Array<{ value: number; name: string }>;
-    startEndAssets: number[];
+    topAssets: Array<{ value: number; name: string }>;
+    valueAssets: Array<{ value: number; name: string }>;
     industryAssets: Array<{ value: number; name: string }>;
-    startEndIndustryAssets: number[];
+    scaleAssets: Array<{ value: number; name: string }>;
   }>;
   fundNames.forEach(fund => {
-    const equityAssets = [
-      { value: Math.random() * 50, name: '重仓' },
-      { value: Math.random() * 50, name: '其他' }
-    ];
-    const startEndAssets = [Math.random() * 100, Math.random() * 100];
+    const sts = getRandomStocks(stocks, 10);
+    const topAssets = sts.map((x: string) => ({ value: Math.random() * 50, name: x }));
+
     const industryAssets = [
       { value: Math.random() * 50, name: '科技' },
       { value: Math.random() * 50, name: '金融' },
+      { value: Math.random() * 50, name: '房地产' },
+      { value: Math.random() * 50, name: '制造' },
+      { value: Math.random() * 50, name: '流通' },
       { value: Math.random() * 50, name: '消费' }
     ];
-    const startEndIndustryAssets = [Math.random() * 100, Math.random() * 100];
+    const valueAssets = [
+      { value: Math.random() * 50, name: '高估值' },
+      { value: Math.random() * 50, name: '中估值' },
+      { value: Math.random() * 50, name: '低估值' }
+    ];
+
+    const scaleAssets = [
+      { value: Math.random() * 50, name: '大盘股' },
+      { value: Math.random() * 50, name: '中盘股' },
+      { value: Math.random() * 50, name: '小盘股' }
+    ];
+
     data.push({
       name: fund,
-      equityAssets,
-      startEndAssets,
+      valueAssets,
+      topAssets,
       industryAssets,
-      startEndIndustryAssets
+      scaleAssets
     });
   });
   return { data, trade_cal_range };
