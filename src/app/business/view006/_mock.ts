@@ -3,27 +3,39 @@ import { MockRequest } from '@delon/mock';
 const portfolios = [
   { id: '1', name: '组合A' },
   { id: '2', name: '组合B' },
-  { id: '3', name: '组合C' }
+  { id: '3', name: '组合C' },
+  { id: '4', name: '组合D' },
+  { id: '5', name: '组合E' },
+  { id: '6', name: '组合F' }
 ];
 
-const assetTree = [
-  {
-    title: '资产分类1',
-    key: '1',
-    children: [
-      { title: '子分类1-1', key: '1-1', isLeaf: true },
-      { title: '子分类1-2', key: '1-2', isLeaf: true }
-    ]
-  },
-  {
-    title: '资产分类2',
-    key: '2',
-    children: [
-      { title: '子分类2-1', key: '2-1', isLeaf: true },
-      { title: '子分类2-2', key: '2-2', isLeaf: true }
-    ]
-  }
+const assets = [
+  { id: '1', name: '权益类', parent_id: '0' },
+  { id: '2', name: '固收类', parent_id: '0' },
+  { id: '1-1', name: 'A股', parent_id: '1' },
+  { id: '1-2', name: '港股', parent_id: '1' },
+  { id: '1-3', name: '美股', parent_id: '1' },
+  { id: '2-1', name: '国债', parent_id: '2' },
+  { id: '2-2', name: '地方债', parent_id: '2' },
+  { id: '2-3', name: '企业债', parent_id: '2' },
+  { id: '2-4', name: '城投债', parent_id: '2' }
 ];
+
+const buildTree = (data: any[], parentId: string | null = ''): any[] => {
+  return data
+    .filter(item => item.parent_id === parentId)
+    .map(item => {
+      const children = buildTree(data, item.id);
+      return {
+        title: item.name,
+        key: item.id,
+        isLeaf: children.length === 0,
+        children: children
+      };
+    });
+};
+
+const assetTree = buildTree(assets, '0');
 
 const trade_cal: string[] = [];
 for (let i = 100; i >= 0; i--) {
@@ -38,11 +50,14 @@ const generateRandomData = (portfolio_id: string, asset_ids: string[], from_date
   let days: number = to_index - from_index + 1;
   let trade_cal_range = trade_cal.slice(from_index, to_index + 1);
   const data = {} as { [key: string]: number[] };
+
   asset_ids.forEach(asset_id => {
-    data[asset_id] = [];
+    let asset = assets.find(x => x.id == asset_id);
+    let asset_name = asset ? asset.name : asset_id;
+    data[asset_name] = [];
     for (let i = 0; i < days; i++) {
       const randomPercentage = (Math.random() * 20 - 10) / 100; // -10% to 10%
-      data[asset_id].push(randomPercentage);
+      data[asset_name].push(randomPercentage);
     }
   });
   return { data, trade_cal_range };
