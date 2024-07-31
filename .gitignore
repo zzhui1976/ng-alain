@@ -48,3 +48,6 @@ Thumbs.db
 /delon-builds
 
 #business
+/src/app/business
+/src/app/routes.routes.ts
+/_mock/index.ts
