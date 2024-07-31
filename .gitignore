@@ -46,3 +46,7 @@ Thumbs.db
 /yarn.lock
 
 /delon-builds
+
+#business
+
+/src/app/business
