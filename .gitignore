@@ -49,5 +49,5 @@ Thumbs.db
 
 #business
 /src/app/business
-/src/app/routes.routes.ts
+/src/app/routes/routes.ts
 /_mock/index.ts
