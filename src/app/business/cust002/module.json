@@ -1,0 +1,15 @@
+{
+  "module": "cust002",
+  "requirement": "生成一个客户拜访记录分析的模块，包含本日、本周、本月、本年拜访量，还有按客户分类、按区域的统计，使用echart，表达方式随意",
+  "description": "使用Angular技术栈，结合ng-zorro组件库和ng-alain脚手架，使用echart做图表，同时生成演示数据_mock.ts。",
+  "files": [
+    {
+      "name": "customer-visit-analysis.component.ts",
+      "description": "客户拜访记录分析组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}

@@ -12,3 +12,4 @@ export * from './view007/_mock';
 export * from './view008/_mock';
 
 export * from './cust001/_mock';
+export * from './cust002/_mock';

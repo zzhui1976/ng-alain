@@ -68,6 +68,10 @@
               "link": "/business/cust001-fcustomer-visit"
             },
             {
+              "text": "客户拜访记录分析",
+              "link": "/business/cust002-customer-visit-analysis"
+            },
+            {
               "text": "企业数据信息管理",
               "link": "/customer/enterprise"
             }

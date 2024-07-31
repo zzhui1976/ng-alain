@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { CustomerVisitComponent } from './cust001/customer-visit.component';
+import { CustomerVisitAnalysisComponent } from './cust002/customer-visit-analysis.component';
 import { GroupCustomerOrderComponent } from './sale001/group-customer-order.component';
 import { CorporateCustomerOrderComponent } from './sale003/corporate-customer-order.component';
 import { OrderAfterSalesComponent } from './sale005/order-after-sales.component';
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: 'view006-portfolio-analysis', component: PortfolioAnalysisComponent },
   { path: 'view007-asset-category-analysis', component: AssetCategoryAnalysisComponent },
   { path: 'view008-fund-performance-chart', component: FundPerformanceChartComponent },
-  { path: 'cust001-fcustomer-visit', component: CustomerVisitComponent }
+  { path: 'cust001-customer-visit', component: CustomerVisitComponent },
+  { path: 'cust002-customer-visit-analysis', component: CustomerVisitAnalysisComponent }
 ];
