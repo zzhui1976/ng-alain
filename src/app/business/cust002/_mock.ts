@@ -7,10 +7,10 @@ const generateVisitData = (period: string, category: string) => {
   let p_num_map: { [key: string]: number } = { today: 1, week: 7, month: 30, year: 12 };
   let p_num = p_num_map[period];
 
-  if (category === 'customer') {
-    categories.push('客户A', '客户B', '客户C', '客户D', '客户E');
+  if (category === 'industry') {
+    categories.push('科技', '金融', '房地产', '制造', '消费', '政府机构');
   } else if (category === 'region') {
-    categories.push('区域A', '区域B', '区域C', '区域D', '区域E');
+    categories.push('华北', '东北', '西北', '西南', '华中', '华东', '华南');
   }
 
   categories.forEach(cat => {

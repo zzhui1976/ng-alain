@@ -39,13 +39,13 @@ export class CustomerVisitAnalysisComponent implements OnInit {
     { label: '本月', value: 'month' },
     { label: '本年', value: 'year' }
   ];
-  selectedPeriod: string = 'today';
+  selectedPeriod: string = 'week';
 
   categories = [
-    { label: '按客户分类', value: 'customer' },
+    { label: '按行业', value: 'industry' },
     { label: '按区域', value: 'region' }
   ];
-  selectedCategory: string = 'customer';
+  selectedCategory: string = 'industry';
 
   constructor(private http: HttpClient) {}
 
