@@ -62,8 +62,11 @@
             {
               "text": "客户家属管理",
               "link": "/customer/family"
-            }
-            ,
+            },
+            {
+              "text": "客户拜访记录管理",
+              "link": "/business/cust001-fcustomer-visit"
+            },
             {
               "text": "企业数据信息管理",
               "link": "/customer/enterprise"

@@ -1,0 +1,23 @@
+{
+  "module": "cust001",
+  "requirement": "生成一个客户拜访记录管理的模块，20个字段以上，可以有两个子表，内容自拟",
+  "description": "使用的技术栈是angular18，使用组件库ng-zorro，使用脚手架ng-alain，每个功能点需要生成两个主要组件，一个是实体的总揽列表，包括主要字段查询操作及增删改的入口，另一个是实体的编辑页面，如果有字段是子表格，请直接使用可编辑表格组件实现，返回的字段为json数组，另外生成一个文件存放演示数据，演示数据不需要过滤及增删改操作，只要返回总体数据就行。还有一个要求，每个模块生成一个枚举项统一管理服务",
+  "files": [
+    {
+      "name": "enum.service.ts",
+      "description": "枚举项统一管理服务"
+    },
+    {
+      "name": "customer-visit.component.ts",
+      "description": "客户拜访记录管理总揽列表组件"
+    },
+    {
+      "name": "customer-visit-edit.component.ts",
+      "description": "客户拜访记录管理编辑页面组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}
