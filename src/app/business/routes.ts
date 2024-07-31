@@ -9,6 +9,8 @@ import { RiskAnalysisComponent } from './view003/risk-analysis.component';
 import { FundEquityAnalysisComponent } from './view004/fund-equity-analysis.component';
 import { FixedIncomeAnalysisComponent } from './view005/fixed-income-analysis.component';
 import { PortfolioAnalysisComponent } from './view006/portfolio-analysis.component';
+import { AssetCategoryAnalysisComponent } from './view007/asset-category-analysis.component';
+import { FundPerformanceChartComponent } from './view008/fund-performance-chart.component';
 
 export const routes: Routes = [
   { path: 'sale001-group-customer-order', component: GroupCustomerOrderComponent },
@@ -19,5 +21,7 @@ export const routes: Routes = [
   { path: 'view003-risk-analysis', component: RiskAnalysisComponent },
   { path: 'view004-fund-equity-analysis', component: FundEquityAnalysisComponent },
   { path: 'view005-fixed-income-analysis', component: FixedIncomeAnalysisComponent },
-  { path: 'view006-portfolio-analysis', component: PortfolioAnalysisComponent }
+  { path: 'view006-portfolio-analysis', component: PortfolioAnalysisComponent },
+  { path: 'view007-asset-category-analysis', component: AssetCategoryAnalysisComponent },
+  { path: 'view008-fund-performance-chart', component: FundPerformanceChartComponent }
 ];

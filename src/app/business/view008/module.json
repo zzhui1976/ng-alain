@@ -1,0 +1,15 @@
+{
+  "module": "view008",
+  "requirement": "生成一个分月展示各基金业绩排名的折线图，起始月用滑轨表示，各月业绩模拟数据用随机数生成-30%-30%之间",
+  "description": "使用Angular技术栈，结合ng-zorro组件库和ng-alain脚手架，使用echart做图表，同时生成演示数据_mock.ts。",
+  "files": [
+    {
+      "name": "fund-performance-chart.component.ts",
+      "description": "基金业绩排名分析组件"
+    },
+    {
+      "name": "_mock.ts",
+      "description": "演示数据文件"
+    }
+  ]
+}

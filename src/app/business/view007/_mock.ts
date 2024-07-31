@@ -55,41 +55,41 @@ for (let i = 100; i >= 0; i--) {
   trade_cal.push(currentDate.toLocaleDateString());
 }
 
-const generateRandomData = (portfolio_id: string, asset_ids: string[], from_date: string, to_date: string) => {
+const generateRandomData = (asset_category_id: string, portfolio_ids: string[], from_date: string, to_date: string) => {
   let from_index = trade_cal.indexOf(from_date) || 0;
   let to_index = trade_cal.indexOf(to_date) || 100;
   let days: number = to_index - from_index + 1;
   let trade_cal_range = trade_cal.slice(from_index, to_index + 1);
   const data = {} as { [key: string]: number[] };
 
-  asset_ids.forEach(asset_id => {
-    let asset = assets.find(x => x.id == asset_id);
-    let asset_name = asset ? asset.name : asset_id;
-    data[asset_name] = [Math.random() * 30];
+  portfolio_ids.forEach(portfolio_id => {
+    let portfolio = portfolios.find(x => x.id == portfolio_id);
+    let portfolio_name = portfolio ? portfolio.name : portfolio_id;
+    data[portfolio_name] = [Math.random() * 30];
     for (let i = 1; i < days; i++) {
-      const prevPercentage = data[asset_name][i - 1];
+      const prevPercentage = data[portfolio_name][i - 1];
       const randomPercentage = Math.random() * 2 - 1; // -1% to 1%
-      data[asset_name].push(prevPercentage + randomPercentage);
+      data[portfolio_name].push(prevPercentage + randomPercentage);
     }
   });
   return { data, trade_cal_range };
 };
 
-export const VIEW006_MOCK = {
-  '/view006/portfolios': (req: MockRequest) => {
+export const VIEW007_MOCK = {
+  '/view007/portfolios': (req: MockRequest) => {
     return { portfolios };
   },
-  '/view006/asset_tree': (req: MockRequest) => {
+  '/view007/asset_tree': (req: MockRequest) => {
     return { assetTree };
   },
-  '/view006/trade_cal': (req: MockRequest) => {
+  '/view007/trade_cal': (req: MockRequest) => {
     return { trade_cal };
   },
-  '/view006/portfolio_analysis': (req: MockRequest) => {
-    const portfolio_id = req.queryString.portfolio_id;
-    const asset_ids = req.queryString.asset_ids.split(',');
+  '/view007/asset_category_analysis': (req: MockRequest) => {
+    const asset_category_id = req.queryString.asset_category_id;
+    const portfolio_ids = req.queryString.portfolio_ids.split(',');
     const from_date = req.queryString.from_date;
     const to_date = req.queryString.to_date;
-    return generateRandomData(portfolio_id, asset_ids, from_date, to_date);
+    return generateRandomData(asset_category_id, portfolio_ids, from_date, to_date);
   }
 };
