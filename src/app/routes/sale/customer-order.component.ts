@@ -13,7 +13,7 @@ import { EnumService } from './enum.service';
   imports: [SharedModule],
   template: `
     <div class="alain-default__content-title">
-      <h1>个人客户仓订单</h1>
+      <h1>个人客户订单</h1>
       <button nz-button (click)="add()" [nzType]="'primary'">添加</button>
     </div>
     <form nz-form nzLayout="inline" se-container>

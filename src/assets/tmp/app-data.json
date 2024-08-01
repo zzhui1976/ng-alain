@@ -159,11 +159,16 @@
           "icon": "anticon-cloud",
           "children": [
             {
-              "text": "经济数据分析",
-              "link": ""
+              "text": "汇率走势分析",
+              "link": "/business/plan001-exchange-rate-analysis"
             },
+             
             {
               "text": "货币数据分析",
+              "link": "/business/plan002-monetary-supply-analysis"
+            },
+            {
+              "text": "经济数据分析",
               "link": ""
             },
             {
